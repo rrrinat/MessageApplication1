@@ -2,6 +2,7 @@
 using NLog;
 using System.Net.WebSockets;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace MessageReceiverClient
 {
@@ -14,9 +15,19 @@ namespace MessageReceiverClient
             logger.Info("Клиент для получения сообщений через WebSocket");
             logger.Info("Подключение к серверу...");
 
-            //var serverUri = new Uri("ws://localhost:5009/ws");
-            var serverUriEnv = Environment.GetEnvironmentVariable("SERVER_WEBSOCKET_URL") ?? "ws://localhost:5009/ws";
+            var serverUriEnv = Environment.GetEnvironmentVariable("SERVER_WEBSOCKET_URL");
 
+            if (string.IsNullOrEmpty(serverUriEnv))
+            {
+                logger.Error("Переменная окружения 'SERVER_WEBSOCKET_URL' не задана.");
+                return; // Или выбросить исключение, если необходимо
+            }
+
+            if (!Uri.TryCreate(serverUriEnv, UriKind.Absolute, out Uri serverUri))
+            {
+                logger.Error("Переменная окружения 'SERVER_WEBSOCKET_URL' содержит некорректный URI: {0}", serverUriEnv);
+                return; // Или выбросить исключение, если необходимо
+            }
 
             using (ClientWebSocket ws = new ClientWebSocket())
             {
