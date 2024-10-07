@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageReceiverClient", "MessageReceiverClient\MessageReceiverClient.csproj", "{179FAF46-A6AE-4FAD-A75F-7BF7C74C6408}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{179FAF46-A6AE-4FAD-A75F-7BF7C74C6408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{179FAF46-A6AE-4FAD-A75F-7BF7C74C6408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{179FAF46-A6AE-4FAD-A75F-7BF7C74C6408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{179FAF46-A6AE-4FAD-A75F-7BF7C74C6408}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F6CA907-2254-48FD-822B-43957A1B901E}
+	EndGlobalSection
+EndGlobal
