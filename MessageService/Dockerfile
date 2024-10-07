@@ -1,11 +1,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-COPY MessageService/MessageService.csproj ./MessageService/
-RUN dotnet restore ./MessageService/MessageService.csproj
+COPY MessageService.csproj ./
+RUN dotnet restore
 
-COPY MessageService/ ./MessageService/
-RUN dotnet publish ./MessageService/MessageService.csproj -c Release -o out
+COPY . ./
+RUN dotnet publish -c Release -o out
 
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
