@@ -1,0 +1,43 @@
+﻿@page "/"
+@using MessageSenderClient.Services
+@using MessageSenderClient.Models
+@inject IMessageService MessageService
+
+<h3>Отправить Сообщение</h3>
+
+<EditForm Model="message" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label for="messageText" class="form-label">Текст сообщения</label>
+        <InputText id="messageText" class="form-control" @bind-Value="message.Text" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Отправить</button>
+</EditForm>
+
+@if (isSuccess.HasValue)
+{
+    <div class="alert @(isSuccess.Value ? "alert-success" : "alert-danger") mt-3">
+        @messageResponse
+    </div>
+}
+
+@code {
+    private Message message = new Message();
+    private bool? isSuccess;
+    private string messageResponse;
+    private int sequenceNumber = 1; // Инициализация счетчика
+
+    private async Task HandleValidSubmit()
+    {
+        message.SequenceNumber = sequenceNumber++;
+        isSuccess = await MessageService.SendMessageAsync(message);
+        messageResponse = isSuccess.Value ? "Сообщение успешно отправлено!" : "Ошибка при отправке сообщения.";
+        if (isSuccess.Value)
+        {
+            message = new Message(); // Очистка формы после успешной отправки
+        }
+    }
+}

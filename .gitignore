@@ -1,104 +1,62 @@
-# Игнорировать временные файлы Visual Studio
-.vs/
+# .NET-specific ignores
+bin/
+obj/
+*.dll
+*.pdb
+*.exe
+*.app
+*.so
+*.dylib
+*.class
+*.pyc
+*.jar
+
+# User-specific files
+*.rsuser
 *.suo
 *.user
 *.userosscache
 *.sln.docstates
 
-# Игнорировать временные файлы MonoDevelop/Xamarin Studio
-*.userprefs
+# Auto-generated files
+Generated\
 
-# Игнорировать файлы автогенерации Mono
-mono_crash.*
-
-# Игнорировать результаты сборки
-[Bb]in/
-[Oo]bj/
-[Dd]ebug/
-[Rr]elease/
-x64/
-x86/
-[Aa][Rr][Mm]/
-[Aa][Rr][Mm]64/
-bld/
-artifacts/
-
-# Игнорировать логи
-[Ll]og/
-[Ll]ogs/
+# Logs
 *.log
 
-# Игнорировать результаты тестирования
-[Tt]est[Rr]esult*/
-TestResult.xml
-nunit-*.xml
+# NuGet packages
+*.nupkg
+packages/
+!packages/repositories.config
 
-# Игнорировать файлы, созданные ATL проектами
-[Dd]ebugPS/
-[Rr]eleasePS/
-dlldata.c
+# Visual Studio 2019/2022
+.vs/
 
-# Игнорировать артефакты BenchmarkDotNet
-BenchmarkDotNet.Artifacts/
+# Rider
+.idea/
+*.sln.iml
 
-# Игнорировать файлы блокировки .NET Core
-project.lock.json
-project.fragment.lock.json
+# DotNetLocalTools
+.localtoolsettings.json
 
-# Игнорировать файлы ASP.NET Scaffolding
-ScaffoldingReadMe.txt
+# Blazor-specific ignores
+wwwroot/
 
-# Игнорировать отчёты StyleCop
-StyleCopReport.xml
+# Razor compilation artifacts
+**/obj/**/*.razor.g.cs
+**/obj/**/*.razor.g.i.cs
+**/obj/**/*.blazor.cs
 
-# Игнорировать файлы, созданные Visual Studio
-*_i.c
-*_p.c
-*_h.h
-*.ilk
-*.meta
-*.obj
-*.iobj
-*.pch
-*.pdb
-*.ipdb
-*.pgc
-*.pgd
-*.rsp
-*.sbr
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.tmp_proj
-*.vspscc
-*_i.asm
-*.cachefile
+# Docker-specific ignores
+docker-compose.override.yml
+docker-compose.yml
+Dockerfile
+.dockerignore
 
-# Игнорировать базы данных и резервные копии
-*.dbmdl
-*.bak
-*.backup
-*.BLOB
-*.cache
+# Build artifacts
+docker-compose-build.yml
+**/*.dcproj
+**/*.dcproj.user
 
-# Игнорировать системные файлы
-.DS_Store
-Thumbs.db
-
-# Игнорировать файлы Docker, не требующие отслеживания
-**/docker-compose.override.yml
-**/.env
-
-# Игнорировать файлы конфигурации Docker, если они содержат секреты
-# Например, если вы используете .env файлы для хранения переменных окружения
-# .env
-
-# Игнорировать директории и файлы IDE, например, VS Code
-.vscode/
-
-# Дополнительные игнорируемые файлы и папки
-node_modules/
-npm-debug.log
-yarn-debug.log
-yarn-error.log
+# Publish output
+publish/
